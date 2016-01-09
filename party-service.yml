@@ -20,5 +20,4 @@ spring:
       database: teste
       host: localhost
       
-      
-      
+  
