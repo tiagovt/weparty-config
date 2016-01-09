@@ -1,3 +1,4 @@
+
 server:
   port: 0
 
@@ -8,19 +9,6 @@ eureka:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
   client:
     registryFetchIntervalSeconds: 5
-
-# The OAuth2 server definition that would be used to send the authorization requests to
-authserver:
-    hostname: localhost
-    port: 8899
-    contextPath: userauth
-
-# Note that the "/user" endpoint needs to provide the principle of the logged in user (/me endpoint)
-spring:
-  oauth2:
-    resource: 
-      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
-      preferTokenInfo: false 
 
 logging:
   level:
@@ -33,4 +21,3 @@ spring:
       database: teste
       host: localhost
       
-  
