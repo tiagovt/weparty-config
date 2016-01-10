@@ -14,12 +14,6 @@ logging:
   level:
     com.weparty.core: INFO
     org.springframework.web: INFO
-
-
-authserver:
-    hostname: localhost
-    port: 8899
-    contextPath: userauth
     
 spring:
   data:
@@ -27,7 +21,6 @@ spring:
       database: teste
       host: localhost
   oauth2:
-    resource: 
-      userInfoUri: http://${authserver.hostname}:${authserver.port}/${authserver.contextPath}/me
-      preferTokenInfo: false 
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
     
