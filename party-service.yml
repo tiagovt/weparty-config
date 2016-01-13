@@ -10,7 +10,7 @@ spring:
       userInfoUri: http://localhost:9999/uaa/user
   data:
     mongodb:
-      database: teste
+      database: party
       host: localhost    
 
 management:
