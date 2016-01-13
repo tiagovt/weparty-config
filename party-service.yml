@@ -2,25 +2,56 @@
 server:
   port: 0
 
+spring:
+  profiles: dev
+
+  oauth2:
+    resource:
+      userInfoUri: http://localhost:9999/uaa/user
+  data:
+    mongodb:
+      database: teste
+      host: localhost    
+
+management:
+  security:
+    enabled: false
+
 eureka:
   instance:
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+
   client:
     registryFetchIntervalSeconds: 5
 
 logging:
   level:
-    com.weparty.core: INFO
-    org.springframework.web: INFO
+    se.callista: INFO
     
+---
+
 spring:
-  data:
-    mongodb:
-      database: teste
-      host: localhost
+  profiles: prod
+
   oauth2:
     resource:
       userInfoUri: http://localhost:9999/uaa/user
-    
+  data:
+    mongodb:
+      database: teste
+      host: localhost    
+
+management:
+  security:
+    enabled: false
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 10
+    metadataMap:
+      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${random.value}}}
+
+  client:
+    registryFetchIntervalSeconds: 5
